@@ -15,6 +15,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: lightgrey;
+  transition-duration: 0.1s;
+}
+
+a:hover {
+  color: black;
+}
+
 h4 {
   padding: 0.2rem 1rem;
 }

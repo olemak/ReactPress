@@ -59,8 +59,8 @@ var App = React.createClass({
 	      <MastHead />
 
         <div id="sidebar">
-          <SidebarElement location={"cases"} parent={this} />
-          <SidebarElement location={"projects"} parent={this} />
+          <SidebarElement location={"cases"} posts={this.state.cases} headerName={ "Arbeider" } />
+          <SidebarElement location={"blogs"} posts={this.state.blogs} headerName={ "Blogger" } />
         </div>
         
 	      <MainView article={this.state[contentScope][active]} />
@@ -99,6 +99,11 @@ var MastHead = React.createClass({
   }
 });
 
+
+
+
+
+
 var SidebarElement = React.createClass({
   
   rawHTML: function(text) {
@@ -111,18 +116,18 @@ var SidebarElement = React.createClass({
   },
 
   render: function() {
-    var loc = this.props.location;
-    daddy = this.props.parent;
+//    var loc = this.props.location;
+//    daddy = this.props.parent;
 //    console.log(daddy);
 
     return(
-          <ul id={loc}>
-          <h3>Projects</h3>
-          {this.props.parent.state.cases.map(function(singleCase, i) {
+          <ul id={this.props.location}>
+          <h3>{this.props.headerName}</h3>
+          {this.props.posts.map(function(post, i) {
             return (
-              <li onClick={this.props.parent.updateMainView.bind(this, i, loc)}>
-                <a href="#main" key={i}>
-                  <h4 dangerouslySetInnerHTML={this.rawHTML(singleCase.title)} />
+              <li onClick={this.updateMainView.bind(this, i, this.props.location)} key={i}>
+                <a href="#main">
+                  <h4 dangerouslySetInnerHTML={this.rawHTML(post.title)} />
                 </a>
               </li>
             );
