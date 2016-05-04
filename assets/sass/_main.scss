@@ -1,0 +1,77 @@
+*  {
+	transition-duration: 1s;
+	transition-timing-function: ease-in;
+	font-family: 'Maven Pro', sans-serif;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Anton', sans-serif;
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+h4 {
+  padding: 0.2rem 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0.2rem;
+}
+
+figure {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+/************* SEXY FLEXY STYLES **************/
+
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 96vh;
+}
+
+    #masthead {
+      background-color: red;
+      flex: 1 1 10vh;
+      order: 1;
+    }
+
+
+    #main {
+      background-color: blue;
+      flex: 1 1 auto;
+      order: 2;
+    }
+
+
+    #sidebar {
+      background-color: yellow;
+      // Relating to parent (as flex child)
+      flex: 1 1 auto;
+      order: 3;
+
+
+      // Relating to children (BLOGS & CASES - as flex parent)
+      display: flex;
+      flex-direction: column;
+    }
+        #cases, #blogs {
+          background-color: teal;
+          flex: 1 0 auto;
+        }
+
+        #cases {
+          background-color: purple;
+        }
+
+        #blogs {
+          background-color: cornsilk;
+        }
